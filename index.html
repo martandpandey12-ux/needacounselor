@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Need A Counsellor | Professional Mental Health Services</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c7a7b;
+            --secondary-color: #319795;
+            --light-bg: #e6fffa;
+            --dark-text: #2d3748;
+            --light-text: #ffffff;
+            --border-color: #cbd5e0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            color: var(--dark-text);
+            line-height: 1.6;
+            background-color: #f7fafc;
+        }
+
+        /* Navigation Header */
+        header {
+            background-color: var(--light-text);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links li {
+            position: relative;
+            margin-left: 1.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Services Dropdown */
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--light-text);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            list-style: none;
+            min-width: 180px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .dropdown-menu li {
+            margin: 0;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #edf2f7;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: var(--light-bg);
+        }
+
+        .login-btn {
+            background-color: var(--primary-color);
+            color: var(--light-text) !important;
+            padding: 0.5rem 1.2rem;
+            border-radius: 4px;
+        }
+
+        .login-btn:hover {
+            background-color: var(--secondary-color) !important;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(44, 122, 123, 0.8), rgba(49, 151, 149, 0.8)), url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+            color: var(--light-text);
+            text-align: center;
+            padding: 5rem 1rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem auto;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            background-color: var(--light-text);
+            color: var(--primary-color);
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .hero-btn:hover {
+            background-color: var(--light-bg);
+        }
+
+        /* Content Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: var(--primary-color);
+            font-size: 2rem;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background-color: var(--light-text);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .service-card ul {
+            list-style-type: square;
+            padding-left: 1.2rem;
+            margin-top: 0.8rem;
+        }
+
+        /* Booking Section */
+        .booking-section {
+            background-color: var(--light-text);
+            border-radius: 8px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            height: 100px;
+        }
+
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            border: none;
+            padding: 0.9rem 1.5rem;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a202c;
+            color: var(--light-text);
+            padding: 3rem 1.5rem 1.5rem 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .footer-section p, .footer-section a {
+            color: #a0aec0;
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: var(--light-text);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            font-size: 1.5rem;
+            color: var(--light-text);
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: var(--secondary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid #2d3748;
+            padding-top: 1.5rem;
+            color: #a0aec0;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <a href="#home" class="logo">Need A Counsellor</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li class="dropdown">
+                    <a href="#services">Services <i class="fa-solid me-1 fa-caret-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#clinical">Clinical Help</a></li>
+                        <li><a href="#counselling">Counselling Help</a></li>
+                        <li><a href="#psychiatry">Psychiatry Help</a></li>
+                    </ul>
+                </li>
+                <li><a href="#booking">Book Session</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#login" class="login-btn">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1>Compassionate Care for Mental Well-being</h1>
+        <p>Professional therapy and psychiatric assistance—available online or directly at your preferred off-site location.</p>
+        <a href="#booking" class="hero-btn">Schedule an Appointment</a>
+    </section>
+
+    <!-- Main Container -->
+    <main class="container">
+
+        <!-- About Us Section -->
+        <section id="about" style="margin-bottom: 4rem;">
+            <h2 class="section-title">About Us</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto; font-size: 1.1rem; color: #4a5568;">
+                At <strong>Need A Counsellor</strong>, we bridge the gap between clients and mental healthcare professionals. Whether you prefer confidential online video sessions or personalized, in-house care at a location of your choice, our qualified team is here to support your journey to emotional wellness.
+            </p>
+        </section>
+
+        <!-- Services Front-Page Highlights -->
+        <section id="services" style="margin-bottom: 4rem;">
+            <h2 class="section-title">Our Specialized Services</h2>
+            <div class="services-grid">
+                
+                <!-- Clinical Help Card -->
+                <div class="service-card" id="clinical">
+                    <h3><i class="fa-solid fa-brain"></i> Clinical Help</h3>
+                    <p>Evidence-based psychological intervention for managing specific personal mental health struggles:</p>
+                    <ul>
+                        <li>Stress Management</li>
+                        <li>Anxiety Disorders</li>
+                        <li>Depression Support</li>
+                    </ul>
+                </div>
+
+                <!-- Counselling Help Card -->
+                <div class="service-card" id="counselling">
+                    <h3><i class="fa-solid fa-users"></i> Counselling Help</h3>
+                    <p>Guided resolution strategies for individuals, couples, and family dynamics:</p>
+                    <ul>
+                        <li>Couple & Marriage Counselling</li>
+                        <li>Family System Dynamics</li>
+                        <li>Grief & Loss Counselling</li>
+                    </ul>
+                </div>
+
+                <!-- Psychiatry Help Card -->
+                <div class="service-card" id="psychiatry">
+                    <h3><i class="fa-solid fa-stethoscope"></i> Psychiatry Help</h3>
+                    <p>Medical evaluation, diagnosis, and psychiatric management for complex conditions:</p>
+                    <ul>
+                        <li>Bipolar Disorder Support</li>
+                        <li>Mood & Personality Disorders</li>
+                        <li>Psychiatric Consultations</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Dynamic Booking Section -->
+        <section id="booking" class="booking-section">
+            <h2 class="section-title" style="margin-bottom: 1.5rem;">Book a Session</h2>
+            <form action="#" method="POST">
+                
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" required placeholder="Enter your full name">
+                </div>
+
+                <div class="form-group">
+                    <label for="contactNumber">Phone / WhatsApp Number</label>
+                    <input type="tel" id="contactNumber" name="contactNumber" required placeholder="e.g. +91 9876543210">
+                </div>
+
+                <div class="form-group">
+                    <label for="serviceCategory">Select Service</label>
+                    <select id="serviceCategory" name="serviceCategory" required>
+                        <option value="" disabled selected>Choose a service category</option>
+                        <option value="clinical">Clinical Help (Stress, Anxiety, Depression)</option>
+                        <option value="counselling">Counselling Help (Couple, Family, Grief)</option>
+                        <option value="psychiatry">Psychiatry Help (Bipolar, Disorders)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="sessionType">Session Mode</label>
+                    <select id="sessionType" name="sessionType" required>
+                        <option value="online">Online Video Session</option>
+                        <option value="in-house">In-House / Off-Site Visit (At your location)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Preferred Visit Address (Only for In-House Sessions)</label>
+                    <textarea id="address" name="address" placeholder="Enter complete address if requesting an in-house counselor visit..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Submit Booking Request</button>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-container">
+            
+            <div class="footer-section">
+                <h4>Need A Counsellor</h4>
+                <p>Empowering minds through professional, flexible counselling and psychiatric support across India.</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="#home">Home</a>
+                <a href="#about">About Us</a>
+                <a href="#services">Services</a>
+                <a href="#booking">Book Appointment</a>
+            </div>
+
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <p><i class="fa-solid fa-phone"></i> +91 98765 43210</p>
+                <p><i class="fa-solid fa-envelope"></i> contact@needacounsellor.com</p>
+                
+                <div class="social-icons">
+                    <a href="https://wa.me/919876543210" target="_blank" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://instagram.com" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://youtube.com" target="_blank" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            &copy; 2026 Need A Counsellor. All Rights Reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
